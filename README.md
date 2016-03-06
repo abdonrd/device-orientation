@@ -1,3 +1,5 @@
+[![Build status](https://travis-ci.org/abdonrd/device-orientation.svg?branch=master)](https://travis-ci.org/abdonrd/device-orientation)
+
 ## &lt;device-orientation&gt;
 
 Polymer element to detecting device orientation.
