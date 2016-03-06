@@ -15,7 +15,27 @@ Polymer element to detecting device orientation.
 <dom-module id="device-orientation">
   <script>
     Polymer({
-      is: 'device-orientation'
+      is: 'device-orientation',
+
+      properties: {
+        orientation: {
+          type: Object,
+          notify: true
+        }
+      },
+
+      ready: function() {
+        window.addEventListener('deviceorientation', this._handleOrientation.bind(this), true);
+      },
+
+      _handleOrientation: function(event) {
+        this.orientation = {
+          absolute: event.absolute,
+          alpha: event.alpha,
+          beta: event.beta,
+          gamma: event.gamma
+        };
+      }
     });
   </script>
 </dom-module>
