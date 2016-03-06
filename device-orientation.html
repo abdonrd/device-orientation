@@ -25,7 +25,11 @@ Polymer element to detecting device orientation.
       },
 
       ready: function() {
-        window.addEventListener('deviceorientation', this._handleOrientation.bind(this), true);
+        if (window.DeviceOrientationEvent) {
+          window.addEventListener('deviceorientation', this._handleOrientation.bind(this), true);
+        } else {
+          console.log('Your browser don´t support device orientation.');
+        }
       },
 
       _handleOrientation: function(event) {
