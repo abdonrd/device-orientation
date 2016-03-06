@@ -1,0 +1,33 @@
+{
+  "name": "device-orientation",
+  "version": "0.0.0",
+  "authors": [
+    "Abdón Rodríguez Davila <a@abdonrd.com>"
+  ],
+  "description": "Polymer element to detecting device orientation.",
+  "keywords": [
+    "web-component",
+    "polymer",
+    "device",
+    "orientation",
+    "sensor"
+  ],
+  "main": "device-orientation.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/abdonrd/device-orientation.git"
+  },
+  "license": "MIT",
+  "homepage": "https://github.com/abdonrd/device-orientation",
+  "ignore": [
+    "/.*",
+    "/test/"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#^1.2.0"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#^1.1.0",
+    "web-component-tester": "^4.0.0"
+  }
+}
