@@ -9,13 +9,48 @@ This code may only be used under the MIT license.
 <!--
 Polymer element to detecting device orientation.
 
+Example to get the device orientation values:
+
+```html
+<device-orientation orientation="{{orientation}}"></device-orientation>
+```
+
 @demo demo/index.html
 -->
 
 <dom-module id="device-orientation">
   <script>
     Polymer({
-      is: 'device-orientation'
+      is: 'device-orientation',
+
+      properties: {
+        /**
+         * The device orientation data.
+         *
+         * An object with the `absolute`, `alpha`, `beta` and `gamma` values.
+         */
+        orientation: {
+          type: Object,
+          notify: true
+        }
+      },
+
+      ready: function() {
+        if (window.DeviceOrientationEvent) {
+          window.addEventListener('deviceorientation', this._handleOrientation.bind(this), true);
+        } else {
+          console.log('Your browser don´t support device orientation.');
+        }
+      },
+
+      _handleOrientation: function(event) {
+        this.orientation = {
+          absolute: event.absolute,
+          alpha: event.alpha,
+          beta: event.beta,
+          gamma: event.gamma
+        };
+      }
     });
   </script>
 </dom-module>

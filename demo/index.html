@@ -12,9 +12,54 @@ This code may only be used under the MIT license.
 
     <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
 
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../device-orientation.html">
+    <link rel="import" href="demo-cube.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+      demo-snippet.cube {
+        --demo-snippet-demo: {
+          padding: 50px 0;
+        };
+      }
+
+      .footer {
+        text-align: center;
+        margin-bottom: 2em;
+        padding-top: 1em;
+      }
+    </style>
   </head>
   <body unresolved>
+    <div class="vertical-section-container centered">
+      <h3>Get the device orientation</h3>
+      <demo-snippet>
+        <template>
+          <template is="dom-bind">
+            <device-orientation orientation="{{orientation}}"></device-orientation>
+            <ul>
+              <li>Alpha: {{orientation.alpha}}</li>
+              <li>Beta: {{orientation.beta}}</li>
+              <li>Gamma: {{orientation.gamma}}</li>
+            </ul>
+          </template>
+        </template>
+      </demo-snippet>
 
+      <h3>Moving a 3D cube with the device orientation</h3>
+      <demo-snippet class="cube">
+        <template>
+          <template is="dom-bind">
+            <device-orientation orientation="{{orientation}}"></device-orientation>
+            <demo-cube orientation="[[orientation]]"></demo-cube>
+          </template>
+        </template>
+      </demo-snippet>
+    </div>
+
+    <div class="footer centered">
+      Made with ♥ by <a href="http://abdonrd.com" target="_blank">Abdón</a>. Find this on <a href="https://github.com/abdonrd/device-orientation" target="_blank">GitHub</a>.
+    </div>
   </body>
 </html>

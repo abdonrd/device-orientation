@@ -1,0 +1,131 @@
+<!--
+@license
+Copyright (c) 2015 Abdón Rodríguez Davila (@abdonrd). All rights reserved.
+This code may only be used under the MIT license.
+-->
+
+<link rel="import" href="../../polymer/polymer.html">
+
+<dom-module id="demo-cube">
+  <template>
+    <style>
+      #cube {
+        width: 100px;
+        height: 100px;
+        margin: 0 auto;
+
+        transform-origin: 50px 50px 0px;
+
+        transform-style: preserve-3d;
+      }
+
+      #cube div {
+        position: absolute;
+
+        width: 100px;
+        height: 100px;
+
+        text-align: center;
+
+        opacity: 0.8;
+        border: 1px solid #0b5043;
+        background: #1abc9c;
+
+        font-size: 50px;
+        line-height: 100px;
+      }
+
+      #cube .front {
+        transform: translateZ(50px);
+      }
+
+      #cube .back {
+        transform: rotateX(180deg) translateZ(50px);
+      }
+
+      #cube .right {
+        transform: rotateY(90deg) rotateZ(-90deg) translateZ(50px);
+      }
+
+      #cube .left {
+        transform: rotateY(-90deg) rotateZ( 90deg) translateZ(50px);
+      }
+
+      #cube .top {
+        transform: rotateX(90deg) translateZ(50px);
+      }
+
+      #cube .bottom {
+        transform: rotateX(-90deg) translateZ(50px);
+      }
+    </style>
+
+    <div id="cube">
+      <div class="front">U</div>
+      <div class="back">G</div>
+      <div class="right">E</div>
+      <div class="left">W</div>
+      <div class="top">N</div>
+      <div class="bottom">S</div>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'demo-cube',
+
+      properties: {
+        orientation: {
+          type: Object,
+          observer: '_orientationChanged'
+        }
+      },
+
+      _orientationChanged: function() {
+        var beta = this._round(this.orientation.beta);
+        var gamma = this._round(this.orientation.gamma);
+        var alpha = this._round(this.orientation.alpha);
+        var default_angle = 0;
+        var default_z = Array(0, 0 , 1);
+        var default_x = this._rotate(Array(1, 0, 0), default_z, default_angle);
+        var default_y = this._rotate(Array(0, 1, 0), default_z, default_angle);
+        var axis_y = default_y;
+        var axis_x = this._rotate(default_x, axis_y, gamma);
+        var axis_z = this._rotate(this._rotate(default_z, axis_y, gamma), axis_x, beta);
+
+        this.$.cube.style.transform =
+            'rotate3d(' + axis_z[0] + ', ' + axis_z[1] + ', ' + axis_z[2] + ', ' + alpha + 'deg) ' +
+            'rotate3d(' + axis_x[0] + ', ' + axis_x[1] + ', ' + axis_x[2] + ', ' + beta + 'deg) ' +
+            'rotate3d(' + axis_y[0] + ', ' + axis_y[1] + ', ' + axis_y[2] + ', ' + gamma + 'deg) ' +
+            'rotateZ(' + default_angle + 'deg)';
+      },
+
+      _round: function (x) {
+        return ((x * 10) >> 0) / 10.0;
+      },
+
+      _rotate: function(vec, axis, angle) {
+        var c = Math.cos(angle * Math.PI / 180.0);
+        var s = Math.sin(angle * Math.PI / 180.0);
+        var x = axis[0];
+        var y = axis[1];
+        var z = axis[2];
+        var rm00 = c + x*x * (1-c);
+        var rm10 = z*s + y*x * (1-c);
+        var rm20 = -y*s + z*x * (1-c);
+        var rm01 = -z*s + x*y * (1-c);
+        var rm11 = c + y*y * (1-c);
+        var rm21 = x*s + z*y * (1-c);
+        var rm02 = y*s + x*z * (1-c);
+        var rm12 = -x*s + y*z * (1-c);
+        var rm22 = c + z*z * (1-c);
+
+        return Array(
+            rm00 * vec[0] + rm01 * vec[1] + rm02 * vec[2],
+            rm10 * vec[0] + rm11 * vec[1] + rm12 * vec[2],
+            rm20 * vec[0] + rm21 * vec[1] + rm22 * vec[2]
+        );
+      }
+    });
+  </script>
+</dom-module>
