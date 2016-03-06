@@ -9,6 +9,12 @@ This code may only be used under the MIT license.
 <!--
 Polymer element to detecting device orientation.
 
+Example to get the device orientation values:
+
+```html
+<device-orientation orientation="{{orientation}}"></device-orientation>
+```
+
 @demo demo/index.html
 -->
 
@@ -18,6 +24,11 @@ Polymer element to detecting device orientation.
       is: 'device-orientation',
 
       properties: {
+        /**
+         * The device orientation data.
+         *
+         * An object with the `absolute`, `alpha`, `beta` and `gamma` values.
+         */
         orientation: {
           type: Object,
           notify: true
