@@ -12,9 +12,37 @@ This code may only be used under the MIT license.
 
     <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
 
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../device-orientation.html">
+
+    <style is="custom-style" include="demo-pages-shared-styles">
+      .footer {
+        text-align: center;
+        margin-bottom: 2em;
+        padding-top: 1em;
+      }
+    </style>
   </head>
   <body unresolved>
+    <div class="vertical-section-container centered">
+      <h3>Get the device orientation</h3>
+      <demo-snippet>
+        <template>
+          <template is="dom-bind">
+            <device-orientation orientation="{{orientation}}"></device-orientation>
+            <ul>
+              <li>Alpha: {{orientation.alpha}}</li>
+              <li>Beta: {{orientation.beta}}</li>
+              <li>Gamma: {{orientation.gamma}}</li>
+            </ul>
+          </template>
+        </template>
+      </demo-snippet>
+    </div>
 
+    <div class="footer centered">
+      Made with ♥ by <a href="http://abdonrd.com" target="_blank">Abdón</a>. Find this on <a href="https://github.com/abdonrd/device-orientation" target="_blank">GitHub</a>.
+    </div>
   </body>
 </html>
