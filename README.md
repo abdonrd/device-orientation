@@ -13,3 +13,9 @@ Example to get the device orientation values:
 ```html
 <device-orientation orientation="{{orientation}}"></device-orientation>
 ```
+
+## License
+
+The MIT License (MIT)
+
+Copyright (c) 2016 Abdón Rodríguez Davila (@abdonrd)
