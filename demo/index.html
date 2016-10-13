@@ -1,16 +1,18 @@
-<!doctype html>
 <!--
 @license
 Copyright (c) 2016 Abdón Rodríguez Davila (@abdonrd). All rights reserved.
-This code may only be used under the MIT style license found at LICENSE.md
+This code may only be used under the MIT style license found at https://abdonrd.github.io/LICENSE.txt
 -->
-<html>
+
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
     <title>device-orientation demo</title>
 
-    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
 
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
@@ -23,15 +25,9 @@ This code may only be used under the MIT style license found at LICENSE.md
           padding: 50px 0;
         };
       }
-
-      .footer {
-        text-align: center;
-        margin-bottom: 2em;
-        padding-top: 1em;
-      }
     </style>
   </head>
-  <body unresolved>
+  <body>
     <div class="vertical-section-container centered">
       <h3>Get the device orientation</h3>
       <demo-snippet>
@@ -56,10 +52,6 @@ This code may only be used under the MIT style license found at LICENSE.md
           </template>
         </template>
       </demo-snippet>
-    </div>
-
-    <div class="footer centered">
-      Made with ♥ by <a href="http://abdonrd.com" target="_blank">Abdón</a>. Find this on <a href="https://github.com/abdonrd/device-orientation" target="_blank">GitHub</a>.
     </div>
   </body>
 </html>

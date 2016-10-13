@@ -9,7 +9,7 @@ This code may only be used under the MIT style license found at LICENSE.md
 <dom-module id="demo-cube">
   <template>
     <style>
-      #cube {
+      .cube {
         width: 100px;
         height: 100px;
         margin: 0 auto;
@@ -19,7 +19,7 @@ This code may only be used under the MIT style license found at LICENSE.md
         transform-style: preserve-3d;
       }
 
-      #cube div {
+      .cube div {
         position: absolute;
 
         width: 100px;
@@ -35,32 +35,32 @@ This code may only be used under the MIT style license found at LICENSE.md
         line-height: 100px;
       }
 
-      #cube .front {
+      .cube .front {
         transform: translateZ(50px);
       }
 
-      #cube .back {
+      .cube .back {
         transform: rotateX(180deg) translateZ(50px);
       }
 
-      #cube .right {
+      .cube .right {
         transform: rotateY(90deg) rotateZ(-90deg) translateZ(50px);
       }
 
-      #cube .left {
+      .cube .left {
         transform: rotateY(-90deg) rotateZ( 90deg) translateZ(50px);
       }
 
-      #cube .top {
+      .cube .top {
         transform: rotateX(90deg) translateZ(50px);
       }
 
-      #cube .bottom {
+      .cube .bottom {
         transform: rotateX(-90deg) translateZ(50px);
       }
     </style>
 
-    <div id="cube">
+    <div id="cube" class="cube">
       <div class="front">U</div>
       <div class="back">G</div>
       <div class="right">E</div>

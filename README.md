@@ -1,21 +1,31 @@
-[![Build status](https://travis-ci.org/abdonrd/device-orientation.svg?branch=master)](https://travis-ci.org/abdonrd/device-orientation)
+[![Build status][travis-image]][travis-url]
 
-_[Demo and API docs](https://abdonrd.github.io/device-orientation/)_
-
-## &lt;device-orientation&gt;
+## \<device-orientation\>
 
 Polymer element to detecting device orientation.
 
-### Use
-
-Example to get the device orientation values:
-
+Example:
+<!---
+```
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="device-orientation.html">
+    <next-code-block></next-code-block>
+  </template>
+</custom-element-demo>
+```
+-->
 ```html
-<device-orientation orientation="{{orientation}}"></device-orientation>
+<template is="dom-bind">
+  <device-orientation orientation="{{orientation}}"></device-orientation>
+  <ul>
+    <li>Alpha: [[orientation.alpha]]</li>
+    <li>Beta: [[orientation.beta]]</li>
+    <li>Gamma: [[orientation.gamma]]</li>
+  </ul>
+</template>
 ```
 
-## License
-
-Copyright (c) 2016 Abdón Rodríguez Davila (@abdonrd). All rights reserved.
-
-This code may only be used under the MIT style license found at [LICENSE.md](LICENSE.md)
+[travis-image]: https://travis-ci.org/abdonrd/device-orientation.svg?branch=master
+[travis-url]: https://travis-ci.org/abdonrd/device-orientation
