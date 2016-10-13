@@ -44,12 +44,12 @@ Example to get the device orientation values:
       },
 
       _handleOrientation: function(event) {
-        this.orientation = {
+        this.set('orientation', {
           absolute: event.absolute,
           alpha: event.alpha,
           beta: event.beta,
           gamma: event.gamma
-        };
+        });
       }
     });
   </script>
