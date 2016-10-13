@@ -35,12 +35,16 @@ Example to get the device orientation values:
         }
       },
 
-      ready: function() {
+      attached: function() {
         if (window.DeviceOrientationEvent) {
           window.addEventListener('deviceorientation', this._handleOrientation.bind(this), true);
         } else {
           console.log('Your browser don´t support device orientation.');
         }
+      },
+
+      detached: function() {
+        window.removeEventListener('deviceorientation');
       },
 
       _handleOrientation: function(event) {
