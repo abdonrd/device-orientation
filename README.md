@@ -1,4 +1,5 @@
 [![Build status][travis-image]][travis-url]
+[![Published on webcomponents.org][webcomponents-image]][webcomponents-url]
 
 ## \<device-orientation\>
 
@@ -31,3 +32,5 @@ Example:
 
 [travis-image]: https://travis-ci.org/abdonrd/device-orientation.svg?branch=master
 [travis-url]: https://travis-ci.org/abdonrd/device-orientation
+[webcomponents-image]: https://img.shields.io/badge/webcomponents.org-published-blue.svg
+[webcomponents-url]: https://beta.webcomponents.org/element/abdonrd/device-orientation
