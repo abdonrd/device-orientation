@@ -33,8 +33,13 @@ This code may only be used under the MIT style license found at https://abdonrd.
       <demo-snippet>
         <template>
           <template is="dom-bind">
-            <device-orientation orientation="{{orientation}}"></device-orientation>
+            <device-orientation
+                api-supported="{{apiSupported}}"
+                orientation="{{orientation}}">
+            </device-orientation>
             <ul>
+              <li>API supported: [[apiSupported]]</li>
+              <li>Absolute: [[orientation.absolute]]</li>
               <li>Alpha: [[orientation.alpha]]</li>
               <li>Beta: [[orientation.beta]]</li>
               <li>Gamma: [[orientation.gamma]]</li>

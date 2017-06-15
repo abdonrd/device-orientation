@@ -32,15 +32,25 @@ Example to get the device orientation values:
         orientation: {
           type: Object,
           notify: true
+        },
+
+        /**
+         * Indicates whether Device Orientation API is supported or not.
+         */
+        apiSupported: {
+          type: Boolean,
+          readOnly: true,
+          notify: true
         }
       },
 
       attached: function() {
         if (window.DeviceOrientationEvent) {
+          this._setApiSupported(true);
           this._deviceorientationListener = this._handleOrientation.bind(this);
           window.addEventListener('deviceorientation', this._deviceorientationListener, true);
         } else {
-          console.log('Your browser don´t support device orientation.');
+          this._setApiSupported(false);
         }
       },
 
