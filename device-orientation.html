@@ -31,6 +31,7 @@ Example to get the device orientation values:
          */
         orientation: {
           type: Object,
+          readOnly: true,
           notify: true
         },
 
@@ -59,7 +60,7 @@ Example to get the device orientation values:
       },
 
       _handleOrientation: function(event) {
-        this.set('orientation', {
+        this._setOrientation({
           absolute: event.absolute,
           alpha: event.alpha,
           beta: event.beta,
