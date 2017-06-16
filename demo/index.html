@@ -35,10 +35,12 @@ This code may only be used under the MIT style license found at https://abdonrd.
           <template is="dom-bind">
             <device-orientation
                 api-supported="{{apiSupported}}"
+                sensors-available="{{sensorsAvailable}}"
                 orientation="{{orientation}}">
             </device-orientation>
             <ul>
               <li>API supported: [[apiSupported]]</li>
+              <li>Sensors available: [[sensorsAvailable]]</li>
               <li>Absolute: [[orientation.absolute]]</li>
               <li>Alpha: [[orientation.alpha]]</li>
               <li>Beta: [[orientation.beta]]</li>
