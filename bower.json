@@ -1,6 +1,6 @@
 {
   "name": "device-orientation",
-  "description": "Polymer element to detecting device orientation",
+  "description": "Polymer elements to detecting device orientation and motion",
   "authors": [
     "Abdón Rodríguez Davila <a@abdonrd.com>"
   ],
@@ -8,7 +8,9 @@
     "web-component",
     "polymer",
     "device",
+    "position",
     "orientation",
+    "motion",
     "sensor"
   ],
   "license": "https://abdonrd.github.io/LICENSE.txt",
@@ -16,7 +18,10 @@
     "type": "git",
     "url": "git://github.com/abdonrd/device-orientation.git"
   },
-  "main": "device-orientation.html",
+  "main": [
+    "device-motion.html",
+    "device-orientation.html"
+  ],
   "dependencies": {
     "polymer": "Polymer/polymer#^1.6.0"
   },

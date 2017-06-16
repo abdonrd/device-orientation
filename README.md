@@ -3,7 +3,7 @@
 
 ## \<device-orientation\>
 
-Polymer element to detecting device orientation.
+Polymer elements to detecting device orientation and motion.
 
 Example:
 <!---
@@ -12,6 +12,7 @@ Example:
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="device-orientation.html">
+    <link rel="import" href="device-motion.html">
     <div>
       <template is="dom-bind">
         <next-code-block></next-code-block>
@@ -23,17 +24,39 @@ Example:
 -->
 ```html
 <device-orientation
-    api-supported="{{apiSupported}}"
-    sensors-available="{{sensorsAvailable}}"
+    api-supported="{{orientationApiSupported}}"
+    sensors-available="{{orientationSensorsAvailable}}"
     orientation="{{orientation}}">
 </device-orientation>
+
 <ul>
-  <li>API supported: [[apiSupported]]</li>
-  <li>Sensors available: [[sensorsAvailable]]</li>
+  <li>API supported: [[orientationApiSupported]]</li>
+  <li>Sensors available: [[orientationSensorsAvailable]]</li>
   <li>Absolute: [[orientation.absolute]]</li>
   <li>Alpha: [[orientation.alpha]]</li>
   <li>Beta: [[orientation.beta]]</li>
   <li>Gamma: [[orientation.gamma]]</li>
+</ul>
+
+<device-motion
+    api-supported="{{motionApiSupported}}"
+    sensors-available="{{motionSensorsAvailable}}"
+    motion="{{motion}}">
+</device-motion>
+
+<ul>
+  <li>API supported: [[motionApiSupported]]</li>
+  <li>Sensors available: [[motionSensorsAvailable]]</li>
+  <li>Acceleration on x: [[motion.acceleration.x]]</li>
+  <li>Acceleration on y: [[motion.acceleration.y]]</li>
+  <li>Acceleration on z: [[motion.acceleration.z]]</li>
+  <li>Acceleration with gravity on x: [[motion.accelerationIncludingGravity.x]]</li>
+  <li>Acceleration with gravity on y: [[motion.accelerationIncludingGravity.y]]</li>
+  <li>Acceleration with gravity on z: [[motion.accelerationIncludingGravity.z]]</li>
+  <li>Rotation rate on &alpha;: [[motion.rotationRate.alpha]]</li>
+  <li>Rotation rate on &beta;: [[motion.rotationRate.beta]]</li>
+  <li>Rotation rate on &gamma;: [[motion.rotationRate.gamma]]</li>
+  <li>Interval: [[motion.interval]]</li>
 </ul>
 ```
 

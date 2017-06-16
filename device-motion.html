@@ -1,0 +1,94 @@
+<!--
+@license
+Copyright (c) 2017 Abdón Rodríguez Davila (@abdonrd). All rights reserved.
+This code may only be used under the MIT style license found at https://abdonrd.github.io/LICENSE.txt
+-->
+
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+Polymer element to detecting device motion.
+
+Example to get the device motion values:
+
+```html
+<device-motion motion="{{motion}}"></device-motion>
+```
+
+@demo demo/device-motion/index.html
+-->
+
+<dom-module id="device-motion">
+  <script>
+    Polymer({
+      is: 'device-motion',
+
+      properties: {
+        /**
+         * The device motion data.
+         *
+         * An object with the `acceleration`, `accelerationIncludingGravity`,
+         * `rotationRate` and `interval` values.
+         */
+        motion: {
+          type: Object,
+          readOnly: true,
+          notify: true
+        },
+
+        /**
+         * Indicates whether `DeviceMotionEvent` is supported or not.
+         */
+        apiSupported: {
+          type: Boolean,
+          readOnly: true,
+          notify: true
+        },
+
+        /**
+         * Indicates whether relevant sensors are available or not.
+         */
+        sensorsAvailable: {
+          type: Boolean,
+          readOnly: true,
+          notify: true
+        }
+      },
+
+      attached: function() {
+        if (window.DeviceMotionEvent) {
+          this._setApiSupported(true);
+          this._devicemotionListener = this._handleMotion.bind(this);
+          window.addEventListener('devicemotion', this._devicemotionListener, true);
+        } else {
+          this._setApiSupported(false);
+        }
+      },
+
+      detached: function() {
+        window.removeEventListener('devicemotion', this._devicemotionListener);
+      },
+
+      _handleMotion: function(event) {
+        this._setMotion({
+          acceleration: event.acceleration,
+          accelerationIncludingGravity: event.accelerationIncludingGravity,
+          rotationRate: event.rotationRate,
+          interval: event.interval
+        });
+
+        this._setSensorsAvailable(!(
+          event.acceleration.x === null &&
+          event.acceleration.y === null &&
+          event.acceleration.z === null &&
+          event.accelerationIncludingGravity.x === null &&
+          event.accelerationIncludingGravity.y === null &&
+          event.accelerationIncludingGravity.z === null &&
+          event.rotationRate.alpha === null &&
+          event.rotationRate.beta === null &&
+          event.rotationRate.gamma === null
+        ));
+      }
+    });
+  </script>
+</dom-module>
