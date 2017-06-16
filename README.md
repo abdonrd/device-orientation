@@ -24,10 +24,12 @@ Example:
 ```html
 <device-orientation
     api-supported="{{apiSupported}}"
+    sensors-available="{{sensorsAvailable}}"
     orientation="{{orientation}}">
 </device-orientation>
 <ul>
   <li>API supported: [[apiSupported]]</li>
+  <li>Sensors available: [[sensorsAvailable]]</li>
   <li>Absolute: [[orientation.absolute]]</li>
   <li>Alpha: [[orientation.alpha]]</li>
   <li>Beta: [[orientation.beta]]</li>

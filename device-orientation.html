@@ -42,6 +42,15 @@ Example to get the device orientation values:
           type: Boolean,
           readOnly: true,
           notify: true
+        },
+
+        /**
+         * Indicates whether relevant sensors are available or not.
+         */
+        sensorsAvailable: {
+          type: Boolean,
+          readOnly: true,
+          notify: true
         }
       },
 
@@ -66,6 +75,10 @@ Example to get the device orientation values:
           beta: event.beta,
           gamma: event.gamma
         });
+
+        this._setSensorsAvailable(
+          !(event.alpha === null && event.beta === null && event.gamma === null)
+        );
       }
     });
   </script>
