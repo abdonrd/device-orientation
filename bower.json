@@ -1,6 +1,6 @@
 {
   "name": "device-orientation",
-  "description": "Polymer elements to detecting device orientation and motion",
+  "description": "Web Components (with Polymer) to detecting device orientation and motion",
   "authors": [
     "Abdón Rodríguez Davila <a@abdonrd.com>"
   ],
