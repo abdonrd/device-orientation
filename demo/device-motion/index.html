@@ -18,41 +18,45 @@ This code may only be used under the MIT style license found at https://abdonrd.
     <link rel="import" href="../../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../device-motion.html">
 
-    <style is="custom-style" include="demo-pages-shared-styles">
-      demo-snippet.cube {
-        --demo-snippet-demo: {
-          padding: 50px 0;
-        };
-      }
-    </style>
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+        demo-snippet.cube {
+          --demo-snippet-demo: {
+            padding: 50px 0;
+          };
+        }
+      </style>
+    </custom-style>
   </head>
   <body>
     <div class="vertical-section-container centered">
       <h3>Get the device motion</h3>
       <demo-snippet>
         <template>
-          <template is="dom-bind">
-            <device-motion
-                api-supported="{{apiSupported}}"
-                sensors-available="{{sensorsAvailable}}"
-                motion="{{motion}}">
-            </device-motion>
+          <dom-bind>
+            <template is="dom-bind">
+              <device-motion
+                  api-supported="{{apiSupported}}"
+                  sensors-available="{{sensorsAvailable}}"
+                  motion="{{motion}}">
+              </device-motion>
 
-            <ul>
-              <li>API supported: [[apiSupported]]</li>
-              <li>Sensors available: [[sensorsAvailable]]</li>
-              <li>Acceleration on x: [[motion.acceleration.x]]</li>
-              <li>Acceleration on y: [[motion.acceleration.y]]</li>
-              <li>Acceleration on z: [[motion.acceleration.z]]</li>
-              <li>Acceleration with gravity on x: [[motion.accelerationIncludingGravity.x]]</li>
-              <li>Acceleration with gravity on y: [[motion.accelerationIncludingGravity.y]]</li>
-              <li>Acceleration with gravity on z: [[motion.accelerationIncludingGravity.z]]</li>
-              <li>Rotation rate on &alpha;: [[motion.rotationRate.alpha]]</li>
-              <li>Rotation rate on &beta;: [[motion.rotationRate.beta]]</li>
-              <li>Rotation rate on &gamma;: [[motion.rotationRate.gamma]]</li>
-              <li>Interval: [[motion.interval]]</li>
-            </ul>
-          </template>
+              <ul>
+                <li>API supported: [[apiSupported]]</li>
+                <li>Sensors available: [[sensorsAvailable]]</li>
+                <li>Acceleration on x: [[motion.acceleration.x]]</li>
+                <li>Acceleration on y: [[motion.acceleration.y]]</li>
+                <li>Acceleration on z: [[motion.acceleration.z]]</li>
+                <li>Acceleration with gravity on x: [[motion.accelerationIncludingGravity.x]]</li>
+                <li>Acceleration with gravity on y: [[motion.accelerationIncludingGravity.y]]</li>
+                <li>Acceleration with gravity on z: [[motion.accelerationIncludingGravity.z]]</li>
+                <li>Rotation rate on &alpha;: [[motion.rotationRate.alpha]]</li>
+                <li>Rotation rate on &beta;: [[motion.rotationRate.beta]]</li>
+                <li>Rotation rate on &gamma;: [[motion.rotationRate.gamma]]</li>
+                <li>Interval: [[motion.interval]]</li>
+              </ul>
+            </template>
+          </dom-bind>
         </template>
       </demo-snippet>
     </div>
