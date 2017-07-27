@@ -17,9 +17,11 @@ Example:
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="device-orientation.html">
     <div>
-      <template is="dom-bind">
-        <next-code-block></next-code-block>
-      </template>
+      <dom-bind>
+        <template is="dom-bind">
+          <next-code-block></next-code-block>
+        </template>
+      </dom-bind>
     </div>
   </template>
 </custom-element-demo>
@@ -54,9 +56,11 @@ Example:
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="device-motion.html">
     <div>
-      <template is="dom-bind">
-        <next-code-block></next-code-block>
-      </template>
+      <dom-bind>
+        <template is="dom-bind">
+          <next-code-block></next-code-block>
+        </template>
+      </dom-bind>
     </div>
   </template>
 </custom-element-demo>
