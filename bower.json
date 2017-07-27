@@ -13,7 +13,7 @@
     "motion",
     "sensor"
   ],
-  "license": "https://abdonrd.github.io/LICENSE.txt",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git://github.com/abdonrd/device-orientation.git"
