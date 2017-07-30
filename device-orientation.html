@@ -18,68 +18,66 @@ Example to get the device orientation values:
 @demo demo/device-orientation/index.html
 -->
 
-<dom-module id="device-orientation">
-  <script>
-    Polymer({
-      is: 'device-orientation',
+<script>
+  Polymer({
+    is: 'device-orientation',
 
-      properties: {
-        /**
-         * The device orientation data.
-         *
-         * An object with the `absolute`, `alpha`, `beta` and `gamma` values.
-         */
-        orientation: {
-          type: Object,
-          readOnly: true,
-          notify: true
-        },
-
-        /**
-         * Indicates whether `DeviceOrientationEvent` is supported or not.
-         */
-        apiSupported: {
-          type: Boolean,
-          readOnly: true,
-          notify: true
-        },
-
-        /**
-         * Indicates whether relevant sensors are available or not.
-         */
-        sensorsAvailable: {
-          type: Boolean,
-          readOnly: true,
-          notify: true
-        }
+    properties: {
+      /**
+       * The device orientation data.
+       *
+       * An object with the `absolute`, `alpha`, `beta` and `gamma` values.
+       */
+      orientation: {
+        type: Object,
+        readOnly: true,
+        notify: true
       },
 
-      attached: function() {
-        if (window.DeviceOrientationEvent) {
-          this._setApiSupported(true);
-          this._deviceorientationListener = this._handleOrientation.bind(this);
-          window.addEventListener('deviceorientation', this._deviceorientationListener, true);
-        } else {
-          this._setApiSupported(false);
-        }
+      /**
+       * Indicates whether `DeviceOrientationEvent` is supported or not.
+       */
+      apiSupported: {
+        type: Boolean,
+        readOnly: true,
+        notify: true
       },
 
-      detached: function() {
-        window.removeEventListener('deviceorientation', this._deviceorientationListener);
-      },
-
-      _handleOrientation: function(event) {
-        this._setOrientation({
-          absolute: event.absolute,
-          alpha: event.alpha,
-          beta: event.beta,
-          gamma: event.gamma
-        });
-
-        this._setSensorsAvailable(
-          !(event.alpha === null && event.beta === null && event.gamma === null)
-        );
+      /**
+       * Indicates whether relevant sensors are available or not.
+       */
+      sensorsAvailable: {
+        type: Boolean,
+        readOnly: true,
+        notify: true
       }
-    });
-  </script>
-</dom-module>
+    },
+
+    attached: function() {
+      if (window.DeviceOrientationEvent) {
+        this._setApiSupported(true);
+        this._deviceorientationListener = this._handleOrientation.bind(this);
+        window.addEventListener('deviceorientation', this._deviceorientationListener, true);
+      } else {
+        this._setApiSupported(false);
+      }
+    },
+
+    detached: function() {
+      window.removeEventListener('deviceorientation', this._deviceorientationListener);
+    },
+
+    _handleOrientation: function(event) {
+      this._setOrientation({
+        absolute: event.absolute,
+        alpha: event.alpha,
+        beta: event.beta,
+        gamma: event.gamma
+      });
+
+      this._setSensorsAvailable(
+        !(event.alpha === null && event.beta === null && event.gamma === null)
+      );
+    }
+  });
+</script>
