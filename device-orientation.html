@@ -75,9 +75,11 @@ Example to get the device orientation values:
         gamma: event.gamma
       });
 
-      this._setSensorsAvailable(
-        !(event.alpha === null && event.beta === null && event.gamma === null)
-      );
+      this._setSensorsAvailable(!(
+        event.alpha === null &&
+        event.beta === null &&
+        event.gamma === null
+      ));
     }
   });
 </script>

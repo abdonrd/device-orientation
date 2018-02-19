@@ -2,5 +2,8 @@
   "extends": "ibmresearch/html",
   "globals": {
     "Polymer": false
+  },
+  "rules": {
+    "func-names": ["off"]
   }
 }
