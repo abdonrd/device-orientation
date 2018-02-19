@@ -6,12 +6,16 @@
   ],
   "keywords": [
     "web-component",
+    "polymer-element",
     "polymer",
+    "polymer-2",
+    "polymer-2-hybrid",
     "device",
     "position",
     "orientation",
     "motion",
-    "sensor"
+    "sensor",
+    "api"
   ],
   "license": "MIT",
   "repository": {
